@@ -178,13 +178,13 @@
         }
 
         ////console.log("[" + fineshedSpWord + "]");
-        return(""+TokiPonaPunctuation.openBracket + fineshedSpWord + TokiPonaPunctuation.closeBracket+"")
+        return(TokiPonaPunctuation.openBracket + fineshedSpWord + TokiPonaPunctuation.closeBracket)
     }
     function replaceCompound(compound){
         var splitcompound = compound.split(" ")
         splitcompound[1] = splitcompound[1].split("(")[0]
-        //console.log(TokiPonaSitelen[TokiPonaLatin.indexOf(splitcompound[0])]+"\u200D"+TokiPonaSitelen[TokiPonaLatin.indexOf(splitcompound[1])]+"")
-        return(TokiPonaSitelen[TokiPonaLatin.indexOf(splitcompound[0])]+"\u200D"+TokiPonaSitelen[TokiPonaLatin.indexOf(splitcompound[1])]+"")
+        //console.log(TokiPonaSitelen[TokiPonaLatin.indexOf(splitcompound[0])]+"\u200D"+TokiPonaSitelen[TokiPonaLatin.indexOf(splitcompound[1])])
+        return(TokiPonaSitelen[TokiPonaLatin.indexOf(splitcompound[0])]+"\u200D"+TokiPonaSitelen[TokiPonaLatin.indexOf(splitcompound[1])])
     }
     function toSP(text){
         if(!text.match(/[a-z:\.,!\?"]/)){
@@ -208,7 +208,7 @@
             var word = TokiPonaLatin[i]
             var pattern = new RegExp("\\b"+word+"\\b", "g")
             var pattern_upper = new RegExp("\\b"+word.toUpperCase()+"\\b", "g")
-            text = text.replaceAll(pattern, TokiPonaSitelen[i]+"")
+            text = text.replaceAll(pattern, TokiPonaSitelen[i])
             text = text.replaceAll(pattern_upper, TokiPonaSitelen[i])//"<strong>"+TokiPonaSitelen[i]+"</strong>")
         }
         text = text.replaceAll(/\b[P|T|K|S|M|N|L|J|W]?[a|e|i|o|u|A|E|I|O|U]n?([p|t|k|s|m|n|l|j|w][a|e|i|o|u]n?)*\b/g, getSPName)
